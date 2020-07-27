@@ -3,7 +3,7 @@ import { AppContainer } from './styles';
 
 import { Card } from './Card';
 import { Column } from './Column';
-
+import { AddNewItem } from "./AddNewItem";
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <Column text="Done">
         <Card text="Begin to use static typings"></Card>
       </Column>
+      <AddNewItem toggleButtontext="+ Add another list" onAdd={console.log}></AddNewItem>
     </AppContainer>
   );
 }
