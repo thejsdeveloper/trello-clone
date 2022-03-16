@@ -1,30 +1,18 @@
-import React from 'react'
-import { ColumnContainer, ColumnTitle } from './styles'
-import { AddNewItem } from './AddNewItem'
-import { useAppState } from './AppStateContext'
-import { Card } from './Card'
+import React from "react";
+import { CardContainer, ColumnContainer, ColumnTitle } from "./styles";
 
-interface ColumnProps {
+type ColumnProps = {
   text: string;
-  index: number;
-}
+  children?: React.ReactNode;
+};
 
-
-export const Column = ({ text, index }: ColumnProps) => {
-  const { state } = useAppState();
-
+export function Column({ text }: ColumnProps) {
   return (
     <ColumnContainer>
-      <ColumnTitle>
-        {text}
-      </ColumnTitle>
-      {
-        state.lists[index].tasks.map(task => (
-          <Card text={task.text} key={task.id}></Card>
-        ))
-      }
-
-      <AddNewItem dark={true} toggleButtontext="+ Add another task" onAdd={console.log}></AddNewItem>
+      <ColumnTitle>{text}</ColumnTitle>
+      <CardContainer>Generate app scaffold</CardContainer>
+      <CardContainer>Learn TypeScript</CardContainer>
+      <CardContainer>Begin to use static typing</CardContainer>
     </ColumnContainer>
-  )
+  );
 }
