@@ -6,6 +6,13 @@ export type Action =
   | {
       type: "ADD_TASK";
       payload: { text: string; listId: string };
+    }
+  | {
+      type: "MOVE_ITEM";
+      payload: {
+        draggedId: string;
+        hoverId: string;
+      };
     };
 
 export const addTask = (text: string, listId: string): Action => {
@@ -19,5 +26,15 @@ export const addList = (text: string): Action => {
   return {
     type: "ADD_LIST",
     payload: text,
+  };
+};
+
+export const moveList = (draggedId: string, hoverId: string): Action => {
+  return {
+    type: "MOVE_ITEM",
+    payload: {
+      draggedId,
+      hoverId,
+    },
   };
 };
