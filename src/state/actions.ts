@@ -5,13 +5,13 @@ export type Action =
     }
   | {
       type: "ADD_TASK";
-      payload: { id: string; listId: string };
+      payload: { text: string; listId: string };
     };
 
-export const addTask = (id: string, listId: string): Action => {
+export const addTask = (text: string, listId: string): Action => {
   return {
     type: "ADD_TASK",
-    payload: { id, listId },
+    payload: { text, listId },
   };
 };
 
