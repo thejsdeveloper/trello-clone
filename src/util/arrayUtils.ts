@@ -18,7 +18,7 @@ export const insertItemAtIndex = <TItem>(
   item: TItem,
   index: number
 ) => {
-  return [...array.slice(0, index), item, ...array.slice(index + 1)];
+  return [...array.slice(0, index), item, ...array.slice(index)];
 };
 
 export const moveItem = <TItem>(array: TItem[], from: number, to: number) => {
