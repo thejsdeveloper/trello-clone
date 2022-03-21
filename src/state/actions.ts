@@ -1,3 +1,5 @@
+import { DragItem } from "../DragItem";
+
 export type Action =
   | {
       type: "ADD_LIST";
@@ -13,6 +15,10 @@ export type Action =
         draggedId: string;
         hoverId: string;
       };
+    }
+  | {
+      type: "SET_DRAGGED_ITEM";
+      payload: DragItem | null;
     };
 
 export const addTask = (text: string, listId: string): Action => {
@@ -36,5 +42,12 @@ export const moveList = (draggedId: string, hoverId: string): Action => {
       draggedId,
       hoverId,
     },
+  };
+};
+
+export const dragItem = (draggedItem: DragItem | null): Action => {
+  return {
+    type: "SET_DRAGGED_ITEM",
+    payload: draggedItem,
   };
 };
