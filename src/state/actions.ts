@@ -45,7 +45,7 @@ export const moveList = (draggedId: string, hoverId: string): Action => {
   };
 };
 
-export const dragItem = (draggedItem: DragItem | null): Action => {
+export const setDragItem = (draggedItem: DragItem | null): Action => {
   return {
     type: "SET_DRAGGED_ITEM",
     payload: draggedItem,
